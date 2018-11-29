@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function myFunction() {
+	var num = document.getElementById("number").value;
+	num = num.trim();
+	
+	var bangla;
+	if(num.length <= 2)	{
+		bangla = arr[subStringToNumber(num, 0, num.length)];
+	}
+	if(num.length == 3)	{
+		bangla = shotok(num);
+	}
+	if(num.length == 4)	{
+		bangla = hazar(num);
+	}
+	if(num.length == 5)	{
+		bangla = ozut(num);
+	}
+	if(num.length == 6)	{
+		bangla = lokho(num);
+	}
+	if(num.length == 7)	{
+		bangla = nizut(num);
+	}
+	if(num.length == 8)	{
+		bangla = ekokkoti(num);
+	}
+	if(num.length == 9)	{
+		bangla = doshokkoti(num);
+	}
+	if(num.length == 10)	{
+		bangla = shotokkoti(num);
+	}
+	if(num.length == 11)	{
+		bangla = hazarkoti(num);
+	}
+	if(num.length == 12)	{
+		bangla = ozutkoti(num);
+	}
+	if(num.length == 13)	{
+		bangla = lokhokoti(num);
+	}
+	
+	if(num.length > 13)	{
+		bangla = "length greater than 13 is not supported right now";
+	}
+	
+    document.getElementById("demo").innerHTML = bangla;
+}
+
+function lokhokoti(num)	{
+	var ret = "";
+	
+	if(subStringToNumber(num, 0, 6) != 0)	{
+		ret += lokho(num.substring(0, 6)) + " কোটি ";
+	}
+	
+	return ret + nizut(num.substring(6, num.length));
+}
+
+function ozutkoti(num)	{
+	var ret = "";
+	
+	if(subStringToNumber(num, 0, 5) != 0)	{
+		ret += ozut(num.substring(0, 5)) + " কোটি ";
+	}
+	
+	return ret + nizut(num.substring(5, num.length));
+}
+
+function hazarkoti(num)	{
+	var ret = "";
+	
+	if(subStringToNumber(num, 0, 4) != 0)	{
+		ret += hazar(num.substring(0, 4)) + " কোটি ";
+	}
+	
+	return ret + nizut(num.substring(4, num.length));
+}
+
+function shotokkoti(num)	{
+	var ret = "";
+	
+	if(subStringToNumber(num, 0, 3) != 0)	{
+		ret += shotok(num.substring(0, 3)) + " কোটি ";
+	}
+	
+	return ret + nizut(num.substring(3, num.length));
+}
+
+function doshokkoti(num)	{
+	var ret = "";
+	
+	if(subStringToNumber(num, 0, 2) != 0)	{
+		ret += ekokDoshok(num.substring(0, 2)) + " কোটি ";
+	}
+	
+	return ret + nizut(num.substring(2, num.length));
+}
+
+function ekokkoti(num)	{
+	var ret = "";
+	
+	if(subStringToNumber(num, 0, 1) != 0)	{
+		ret += arr[subStringToNumber(num, 0, 1)] + " কোটি ";
+	}
+	
+	return ret + nizut(num.substring(1, num.length));
+}
+
+function nizut(num)	{
+	var ret = "";
+	if(subStringToNumber(num, 0, 2) != 0)	{
+		ret += arr[subStringToNumber(num, 0, 2)] + " লক্ষ ";
+	}
+	return ret + ozut(num.substring(2, num.length));
+}
+
+function lokho(num)	{
+	var ret = "";
+	if(subStringToNumber(num, 0, 1) != 0)	{
+		ret += arr[subStringToNumber(num, 0, 1)] + " লক্ষ ";
+	}
+	return ret + ozut(num.substring(1, num.length));
+}
+
+function ozut(num)	{
+	var ret = "";
+	if(subStringToNumber(num, 0, 2) != 0)	{
+		ret += arr[subStringToNumber(num, 0, 2)] + " হাজার ";
+	}
+	return ret + shotok(num.substring(2, num.length));
+}
+
+function hazar(num)	{
+	var ret = "";
+	if(subStringToNumber(num, 0, 1) != 0)	{
+		ret += arr[subStringToNumber(num, 0, 1)] + " হাজার ";
+	}
+	return ret + shotok(num.substring(1, num.length));
+}
+
+function shotok(num)	{
+	var ret = "";
+	if(subStringToNumber(num, 0, 1) != 0)	{
+		ret += arr[subStringToNumber(num, 0, 1)] + "শত ";
+	}
+	return ret + ekokDoshok(num.substring(1, num.length));
+}
+
+function ekokDoshok(num)	{
+	var ret = "";
+	if(subStringToNumber(num, 0, num.length) != 0)	{
+		ret += arr[subStringToNumber(num, 0, num.length)];
+	}
+	return ret;
+}
+
+function subStringToNumber(num, le, ri)	{
+	/**
+	var numnum = "";
+	for(var i = le; i <= ri; i++)	{
+		numnum += num.charAt(i);
+	}
+	*/
+	return parseInt(num.substring(le, ri));//parse from le to ri-1
+}
+
+
+var foo = `no
+way`;
+console.log(foo);
+
+
+var rawText = `<td>০ শূন্য zero</td>
+<td>১ এক one</td>
+<td>২ দুই two</td>
+<td>৩ তিন three</td>
+<td>৪ চার four</td>
+<td>৫ পাঁচ five</td>
+<td>৬ ছয় six</td>
+<td>৭ সাত seven</td>
+<td>৮ আট eight</td>
+<td>৯ নয় nine
+</td></tr>
+<tr>
+<td>১০ দশ ten</td>
+<td>১১ এগারো eleven</td>
+<td>১২ বারো twelve</td>
+<td>১৩ তেরো thirteen</td>
+<td>১৪ চৌদ্দ fourteen</td>
+<td>১৫ পনেরো fifteen</td>
+<td>১৬ ষোল sixteen</td>
+<td>১৭ সতেরো seventeen</td>
+<td>১৮ আঠারো eighteen</td>
+<td>১৯ ঊনিশ nineteen
+</td></tr>
+<tr>
+<td>২০ বিশ twenty</td>
+<td>২১ একুশ twenty-one</td>
+<td>২২ বাইশ twenty-two</td>
+<td>২৩ তেইশ twenty-three</td>
+<td>২৪ চব্বিশ twenty-four</td>
+<td>২৫ পঁচিশ twenty-five</td>
+<td>২৬ ছাব্বিশ twenty-six</td>
+<td>২৭ সাতাশ twenty-seven</td>
+<td>২৮ আটাশ twenty-eight</td>
+<td>২৯ ঊনত্রিশ twenty-nine
+</td></tr>
+<tr>
+<td>৩০ ত্রিশ thirty</td>
+<td>৩১ একত্রিশ thirty-one</td>
+<td>৩২ বত্রিশ thirty-two</td>
+<td>৩৩ তেত্রিশ thirty-three</td>
+<td>৩৪ চৌত্রিশ thirty-four</td>
+<td>৩৫ পঁয়ত্রিশ thirty-five</td>
+<td>৩৬ ছত্রিশ thirty-six</td>
+<td>৩৭ সাঁইত্রিশ thirty-seven</td>
+<td>৩৮ আটত্রিশ thirty-eight</td>
+<td>৩৯ ঊনচল্লিশ thirty-nine
+</td></tr>
+<tr>
+<td>৪০ চল্লিশ forty</td>
+<td>৪১ একচল্লিশ forty-one</td>
+<td>৪২ বিয়াল্লিশ forty-two</td>
+<td>৪৩ তেতাল্লিশ forty-three</td>
+<td>৪৪ চুয়াল্লিশ forty-four</td>
+<td>৪৫ পঁয়তাল্লিশ forty-five</td>
+<td>৪৬ ছিচল্লিশ forty-six</td>
+<td>৪৭ সাতচল্লিশ forty-seven</td>
+<td>৪৮ আটচল্লিশ forty-eight</td>
+<td>৪৯ ঊনপঞ্চাশ forty-nine
+</td></tr>
+<tr>
+<td>৫০ পঞ্চাশ fifty</td>
+<td>৫১ একান্ন fifty-one</td>
+<td>৫২ বায়ান্ন fifty-two</td>
+<td>৫৩ তিপ্পান্ন fifty-three</td>
+<td>৫৪ চুয়ান্ন fifty-four</td>
+<td>৫৫ পঞ্চান্ন fifty-five</td>
+<td>৫৬ ছাপ্পান্ন fifty-six</td>
+<td>৫৭ সাতান্ন fifty-seven</td>
+<td>৫৮ আটান্ন fifty-eight</td>
+<td>৫৯ ঊনষাট fifty-nine
+</td></tr>
+<tr>
+<td>৬০ ষাট sixty</td>
+<td>৬১ একষট্টি sixty-one</td>
+<td>৬২ বাষট্টি sixty-two</td>
+<td>৬৩ তেষট্টি sixty-three</td>
+<td>৬৪ চৌষট্টি sixty-four</td>
+<td>৬৫ পঁয়ষট্টি sixty-five</td>
+<td>৬৬ ছেষট্টি sixty-six</td>
+<td>৬৭ সাতষট্টি sixty-seven</td>
+<td>৬৮ আটষট্টি sixty-eight</td>
+<td>৬৯ ঊনসত্তর sixty-nine
+</td></tr>
+<tr>
+<td>৭০ সত্তর seventy</td>
+<td>৭১ একাত্তর seventy-one</td>
+<td>৭২ বাহাত্তর seventy-two</td>
+<td>৭৩ তিয়াত্তর seventy-three</td>
+<td>৭৪ চুয়াত্তর seventy-four</td>
+<td>৭৫ পঁচাত্তর seventy-five</td>
+<td>৭৬ ছিয়াত্তর seventy-six</td>
+<td>৭৭ সাতাত্তর seventy-seven</td>
+<td>৭৮ আটাত্তর seventy-eight</td>
+<td>৭৯ ঊনআশি seventy-nine
+</td></tr>
+<tr>
+<td>৮০ আশি eighty</td>
+<td>৮১ একাশি eighty-one</td>
+<td>৮২ বিরাশি eighty-two</td>
+<td>৮৩ তিরাশি eighty-three</td>
+<td>৮৪ চুরাশি eighty-four</td>
+<td>৮৫ পঁচাশি eighty-five</td>
+<td>৮৬ ছিয়াশি eighty-six</td>
+<td>৮৭ সাতাশি eighty-seven</td>
+<td>৮৮ আটাশি eighty-eight</td>
+<td>৮৯ ঊননব্বই eighty-nine
+</td></tr>
+<tr>
+<td>৯০ নব্বই ninety</td>
+<td>৯১ একানব্বই ninety-one</td>
+<td>৯২ বিরানব্বই ninety-two</td>
+<td>৯৩ তিরানব্বই ninety-three</td>
+<td>৯৪ চুরানব্বই ninety-four</td>
+<td>৯৫ পঁচানব্বই ninety-five</td>
+<td>৯৬ ছিয়ানব্বই ninety-six</td>
+<td>৯৭ সাতানব্বই ninety-seven</td>
+<td>৯৮ আটানব্বই ninety-eight</td>
+<td>৯৯ নিরানব্বই ninety-nine</td>
+<td>১০০ একশত one-hundred`;
+
+/**
+console.log(rawText.charAt(0));
+if(rawText.charAt(1) != 't')	{
+	console.log("hoi nai");
+	
+}
+else	{
+	console.log("hoise");
+}
+var hoo = "";
+hoo += rawText.charAt(0);
+hoo += rawText.charAt(1);
+console.log(hoo);
+*/
+
+var arr = [];
+
+var freq = 0;
+for(var i = 0; i < rawText.length; i++)	{
+	if(rawText.charAt(i) == ' ')	{
+		i++;
+		var str = "";
+		while(i < rawText.length)	{
+			if(rawText.charAt(i) == " ")	{
+				break;
+			}
+			str += rawText.charAt(i);
+			i++;
+			//console.log("i : " + i);
+		}
+		i--;
+		freq++;
+		freq = freq % 2;
+		//console.log("freq : " + freq + " " + str);
+		
+		if(freq == 1)	{
+			//console.log(str);
+			arr.push(str);
+		}
+	}
+}
+
+for(var i = 0; i < arr.length; i++)	{
+	console.log(i + " : " + arr[i]);
+}
+
+
+console.log("the end");
+
+</script>
+</head>
+
+<body>
+
+<h1>Enter a number (in English)</h1>
+ <input type="text" id="number"><br>
+<button type="button" onclick="myFunction()">Try it</button>
+<p id="demo"></p>
+
+</body>
+</html>
